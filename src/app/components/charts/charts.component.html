@@ -1,0 +1,17 @@
+<br><br>
+<div class="row">
+  <div class="col-6">
+    <h1>
+      {{title1}}
+    </h1>
+    <fusioncharts width="600" height="350" type="Column2D" dataFormat="JSON" [dataSource]="manholeDataSource"></fusioncharts>
+    <a class="nav-link " href="/charts-manhole">View Details</a>
+  </div>
+  <div class="col-6">
+    <h1>
+      {{title2}}
+    </h1>
+    <fusioncharts width="600" height="350" type="Column2D" dataFormat="JSON" [dataSource]="overheadCableDataSource"></fusioncharts>
+      <a class="nav-link " href="/charts-overhead">View Details</a>
+  </div>
+</div>

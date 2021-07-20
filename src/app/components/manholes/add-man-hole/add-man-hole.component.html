@@ -1,0 +1,29 @@
+<br><br>
+<div class="card border-0">
+  <div class="container">
+    <h2 class="text-center">Add new Transformer Location</h2>
+    <br><br>
+      <div class="form-row">
+        <div class="col">
+          <label>Transformer Location Id</label>
+          <input type="number" class="form-control" [(ngModel)]="data.manholeId">
+        </div>
+        <div class="col">
+          <label>Loction Name </label>
+          <input type="text" class="form-control" [(ngModel)]="data.locationName">
+        </div>
+      </div>
+      <br>
+      <div class="form-row">
+        <div class="col">
+          <label>Longitude </label>
+          <input type="number" class="form-control" [(ngModel)]="data.longitude">
+        </div>
+        <div class="col">
+          <label>Latitude </label>
+          <input type="number" class="form-control" [(ngModel)]="data.latitude">
+        </div>
+      </div>
+    <br>
+    <button (click)="onSubmit()" class="btn btn-primary">Submit</button>
+  </div>

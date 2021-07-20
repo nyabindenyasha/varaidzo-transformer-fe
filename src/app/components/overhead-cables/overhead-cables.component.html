@@ -1,0 +1,22 @@
+<br><br>
+<div class="card text-center border-0">
+<div class="container">
+  <h2  class="text-center">Oil Level Records</h2>
+  <br><br>
+    <table class="table">
+      <thead class="heading" >
+        <tr>
+         <th scope="col">#</th>
+         <th scope="col">Base Station Distance</th>
+         <th scope="col"> Date Created</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor = "let  item of overheads">
+          <th  scope="col">{{item.id}}</th>
+          <th  scope="col">{{item.baseStationDistance}}</th>
+          <th  scope="col">{{item.datetime}}</th>  
+        </tr>
+      </tbody>
+    </table>
+</div>

@@ -1,0 +1,22 @@
+/* You can add global styles to this file, and also import other style files */
+@import './styles/bootstrap-4.2.1-dist/css/bootstrap.min.css';
+
+
+.primary-color {
+  background-color: primary-color !important;
+  background-color: #3367D6;
+  color: #fff !important;
+}
+
+.primary-color {
+    background-color:  #E7E8EC;
+  }
+
+.my-container{
+    background-color: #E7E8EC;
+}
+
+.body{
+  background-color: #E7E8EC;
+}
+

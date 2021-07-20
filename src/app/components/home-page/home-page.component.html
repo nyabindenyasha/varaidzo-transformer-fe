@@ -1,0 +1,70 @@
+<!-- <div class="card text-center">
+  <div class="card-header">
+    <ul class="nav nav-tabs container-header-tabs d-flex justify-content-end">
+      <li class="nav-item">
+        <a class="nav-link" href="#">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">About Us</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link " href="#">Contact</a>
+      </li>
+    </ul>
+  </div>
+</div>
+<div class="row">
+  <div class="col-3">
+    <ul class="list-group">
+      <li class="list-group-item"><a href="manholes">Man Holes</a></li>
+      <li class="list-group-item"><a href="overhead">OverHeard cables</a></li>
+      <li class="list-group-item"><a href="login">Logout</a></li>
+    </ul>
+  </div>
+  <div class="col-9">
+    <h1>
+      {{title}}
+    </h1>
+    <fusioncharts
+        width="600"
+        height="350"
+        type="Column2D"
+        dataFormat="JSON"
+        [dataSource]="dataSource"
+    ></fusioncharts>
+  </div>
+</div> -->
+
+<div class="card text-center">
+  <div class="card-header">
+    <ul class="nav  container-header-tabs d-flex justify-content-end">
+      <li class="nav-item">
+        <a class="nav-link" href="" >{{user.username}}</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link " href="/charts">View Statistics</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link"  href="" (click)="logout()">Logout</a>
+      </li>
+    </ul>
+  </div>
+</div>
+<div class="row">
+  <div class="col-2">
+    <ul class="list-group">
+      <li class="list-group-item"><a href="manholes">Transformer Locations</a></li>
+      <li class="list-group-item"><a href="manhole-intrusions">Transformer Intrusions</a></li>
+      <li class="list-group-item"><a href="overhead">Oil Level History</a></li>
+      <li class="list-group-item"><a href="users">System Users</a></li>
+    </ul>
+  </div>
+  <div class="col-10">
+
+    <router-outlet></router-outlet>
+
+  </div>
+</div>

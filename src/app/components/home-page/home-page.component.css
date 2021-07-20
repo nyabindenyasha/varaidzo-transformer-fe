@@ -1,0 +1,14 @@
+.card-header{
+    padding-top: 1em;
+    background-color: #0069D8;
+}
+
+.nav-link{
+    text-align: end;
+    color: whitesmoke;
+    size:  4em;
+}
+
+.my-container{
+    background-color: #E7E8EC;
+}

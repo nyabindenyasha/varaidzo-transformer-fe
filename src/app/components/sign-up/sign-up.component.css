@@ -1,0 +1,9 @@
+.card-header{
+    padding-top: 3em;
+    background-color: purple;
+    height: 8em;
+}
+
+.btn-square{
+    outline-color: blueviolet;
+}

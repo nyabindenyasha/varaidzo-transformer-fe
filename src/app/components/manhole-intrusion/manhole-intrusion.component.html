@@ -1,0 +1,24 @@
+<br><br>
+<div class="card text-center border-0">
+  <div class="container">
+  <h2  class="text-center">Transformer Intrusions</h2>
+  <br><br>
+    <table class="table">
+      <thead class="heading">
+        <tr>
+         <th scope="col">#</th>
+         <th scope="col">Transformer Locations</th>
+         <th scope="col">Datetime </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor = "let  item of manHoleDetails">
+          <th  scope="col">{{item.id}}</th>
+          <th  scope="col">Manhole {{item.manholeId}}</th>
+          <th  scope="col">{{item.datetimeString}}</th>
+        </tr>
+      </tbody>
+    </table>
+    <a class="btn btn-square btn-lg btn-outline-primary float-right" href="add-intr" >Add Transformer Intrusion Record
+    </a>
+</div>
