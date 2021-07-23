@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Category } from 'src/app/models/category';
 import { RequestHandler } from 'src/app/providers/requesthandler';
 
 @Component({
@@ -8,6 +9,7 @@ import { RequestHandler } from 'src/app/providers/requesthandler';
 })
 export class ManholesComponent implements OnInit {
   manHoleDetails: any = new Array();
+  category: Category = new Category();
 
   constructor(private request: RequestHandler) {
   }
@@ -17,13 +19,22 @@ export class ManholesComponent implements OnInit {
   }
 
   getManHoles() {
-    this.request.get('/manholeloc', (result) => this.loadManholes(result))
+    this.request.get('/v1/transformerLocation/all', (result) => {
+      console.log(result);
+      this.loadManholes(result);
+    })
   }
 
 
   loadManholes(manholes) {
     this.manHoleDetails = manholes;
     console.log(manholes);
+  }
+
+  onMore(item: any, event){
+    console.log("onMore")
+    console.log(item)
+    console.log(event)
   }
 
 }

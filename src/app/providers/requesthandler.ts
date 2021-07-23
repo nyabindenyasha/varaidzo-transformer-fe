@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';import { Observable } from 'rxjs';
 
 @Injectable()
 export class RequestHandler {
-    _base: string = 'http://192.168.10.226:8044';
+    _base: string = 'http://localhost:8080';
     base: string = this._base + '';
 
     constructor(private _http: HttpClient) {

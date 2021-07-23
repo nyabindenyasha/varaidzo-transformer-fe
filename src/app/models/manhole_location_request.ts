@@ -1,7 +1,10 @@
 export class ManholeLocationRequest {
 
-    manholeId : number;
-    locationName : string;
+    id: number;
+    createdDate: Date;
+    name : string;
+    description : string;
     latitude : number;
     longitude : number;
+    
 }

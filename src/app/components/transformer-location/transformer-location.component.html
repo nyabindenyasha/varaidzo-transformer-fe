@@ -1,0 +1,101 @@
+<br><br>
+<div *ngIf="!isSelected" class="container">
+  <h2 class="text-center">Transformer Locations</h2>
+  <br><br>
+  <table class="table">
+    <thead class="heading">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Location Name </th>
+        <th scope="col">Description </th>
+        <th scope="col">Latitude </th>
+        <th scope="col">Longitude </th>
+        <th scope="col">More Info </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let  item of transformerLocations">
+        <th scope="col">{{item.id}}</th>
+        <th scope="col">{{item.name}}</th>
+        <th scope="col">{{item.description}}</th>
+        <th scope="col">{{item.latitude}}</th>
+        <th scope="col">{{item.longitude}}</th>
+        <!-- <button class="btn btn-outline-secondary" (click)="onMore(item)"> More Info </button> -->
+        <div [formGroup]="this.transformerLocationService.form">
+          <select id="drp" class="browser-default custom-select mb-4 form-control" formControlName="category" (change)="onMore(item)">
+            <option value="" disabled>Choose option</option>
+            <option value=1> View Intrusions </option>
+            <option value=2> View Oil Readings </option>
+            <option value=3> View Statistics </option>
+          </select>
+        </div>
+      
+      </tr>
+    </tbody>
+  </table>
+  <a class="btn btn-square btn-lg btn-outline-primary float-right" href="add">Add Transformer Location
+  </a>
+</div>
+
+
+<!------------------------------------------------------------------->
+
+<!-- <div *ngIf="isSelected" class="row">
+
+  <div class="col-md-2">
+    <button class="btn btn-outline-secondary" (click)="onBack()"> Back </button>
+  </div>
+
+  <div class="col-md-8">
+    <div class="white-box">
+      <h2 class="text-center">Transformer Location</h2>
+      <div class="row">
+        <div class="col-sm-12 col-xs-12">
+          <form [formGroup]="this.transformerLocationService.form" (ngSubmit)="onSubmit()">
+  
+  
+            <div class="form-group">
+              <label for="id">Id</label>
+              <input type="number" formControlName="id" class="form-control" id="id" placeholder="Enter fullname">
+            </div>
+  
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" formControlName="name" class="form-control" id="name"
+                placeholder="Enter Username">
+            </div>
+  
+            <div class="form-group">
+              <label for="description">Description</label>
+              <input type="text" formControlName="description" class="form-control" id="exampleInputPassword1"
+                placeholder="Description">
+            </div>
+  
+            <div class="form-group">
+              <label for="description">Description</label>
+              <input type="text" formControlName="description" class="form-control" id="exampleInputPassword1"
+                placeholder="Description">
+            </div>
+  
+            <div class="form-group">
+              <label for="description">Description</label>
+              <input type="text" formControlName="description" class="form-control" id="exampleInputPassword1"
+                placeholder="Description">
+            </div>
+          </form>
+  
+          <button class="btn btn-outline-secondary" (click)="onIntrusions(selected)"> View Intrusions </button>
+          <button class="btn btn-outline-secondary" (click)="onOilReadings(selected)"> View Oil Readings </button>
+          <button class="btn btn-outline-secondary" (click)="onStatistics(selected)"> View Statistics </button>
+  
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div> -->
+
+
+<app-manhole-intrusion *ngIf="isIntrusion" [manholeLocationRequest]="manholeLocationRequest"></app-manhole-intrusion>
+
+<app-overhead-cables *ngIf="isOilReading" [manholeLocationRequest]="manholeLocationRequest"></app-overhead-cables>

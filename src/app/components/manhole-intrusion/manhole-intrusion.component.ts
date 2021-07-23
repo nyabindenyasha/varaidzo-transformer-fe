@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { ManholeIntrusion } from 'src/app/models/manhole-intrusion';
+import { ManholeLocationRequest } from 'src/app/models/manhole_location_request';
 import { RequestHandler } from 'src/app/providers/requesthandler';
 
 @Component({
@@ -7,17 +9,33 @@ import { RequestHandler } from 'src/app/providers/requesthandler';
   styleUrls: ['./manhole-intrusion.component.css']
 })
 export class ManholeIntrusionComponent implements OnInit {
-  manHoleDetails: any = new Array();
+
+  @Input() manholeLocationRequest: ManholeLocationRequest;
+
+  title: string;
+  manHoleDetails: ManholeIntrusion[] = [];
 
   constructor(private request: RequestHandler) {
   }
 
   ngOnInit() {
+    console.log(this.manholeLocationRequest);
+    if(this.manholeLocationRequest == null){
+      this.title = "All ";
     this.getManholeIntrusions();
+    }
+    else{
+      this.title = this.manholeLocationRequest.name + " ";
+    this.getManholeIntrusionsByManhole(this.manholeLocationRequest)
+    }
   }
 
   getManholeIntrusions() {
-    this.request.get('/manholeintr', (result) => this.loadManholeIntrusions(result))
+    this.request.get('/v1/transformerIntrusion/all', (result) => this.loadManholeIntrusions(result))
+  }
+
+  getManholeIntrusionsByManhole(manhole: ManholeLocationRequest) {
+    this.request.get('/v1/transformerIntrusion/findByLocation/' + manhole.id, (result) => this.loadManholeIntrusions(result))
   }
 
   loadManholeIntrusions(manholes) {

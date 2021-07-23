@@ -21,7 +21,7 @@ export class AddManHoleComponent implements OnInit {
 
   onSubmit(){
     console.log(this.data);
-    this.request.post('/manholeloc', this.data, (result) => {
+    this.request.post('/v1/transformerLocation', this.data, (result) => {
       console.log(result);
       this.onSuccess(result)
     })

@@ -1,21 +1,23 @@
 <br><br>
 <div class="card text-center border-0">
 <div class="container">
-  <h2  class="text-center">Oil Level Records</h2>
+  <h2  class="text-center"> {{title}} Oil Level Records</h2>
   <br><br>
     <table class="table">
       <thead class="heading" >
         <tr>
          <th scope="col">#</th>
-         <th scope="col">Base Station Distance</th>
-         <th scope="col"> Date Created</th>
+         <th scope="col">Location</th>
+         <th scope="col">Oil Reading</th>
+         <th scope="col"> Date</th>
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor = "let  item of overheads">
+        <tr *ngFor = "let  item of oilLevelList">
           <th  scope="col">{{item.id}}</th>
-          <th  scope="col">{{item.baseStationDistance}}</th>
-          <th  scope="col">{{item.datetime}}</th>  
+          <th  scope="col">{{item.transformerLocation.name}}</th>
+          <th  scope="col">{{item.oilLevel}}</th>
+          <th  scope="col">{{item.date | date : 'short'}}</th>  
         </tr>
       </tbody>
     </table>

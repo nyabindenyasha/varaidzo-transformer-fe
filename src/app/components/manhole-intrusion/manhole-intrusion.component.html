@@ -1,21 +1,25 @@
 <br><br>
 <div class="card text-center border-0">
   <div class="container">
-  <h2  class="text-center">Transformer Intrusions</h2>
+  <h2  class="text-center"> {{title}} Transformer Intrusions</h2>
   <br><br>
     <table class="table">
       <thead class="heading">
         <tr>
          <th scope="col">#</th>
-         <th scope="col">Transformer Locations</th>
-         <th scope="col">Datetime </th>
+         <th scope="col">Title</th>
+         <th scope="col">Comment </th>
+         <th scope="col">Location</th>
+         <th scope="col">Date</th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor = "let  item of manHoleDetails">
           <th  scope="col">{{item.id}}</th>
-          <th  scope="col">Manhole {{item.manholeId}}</th>
-          <th  scope="col">{{item.datetimeString}}</th>
+          <th  scope="col">{{item.title}}</th>
+          <th  scope="col">{{item.comment}}</th>
+          <th  scope="col">{{item.transformerLocation.name}}</th>
+          <th  scope="col">{{item.date | date : 'short' }}</th>
         </tr>
       </tbody>
     </table>

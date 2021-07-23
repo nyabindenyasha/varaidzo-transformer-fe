@@ -14,22 +14,24 @@ import { RegisterComponent } from './register';
 import { ManholeIntrusionComponent } from './components/manhole-intrusion/manhole-intrusion.component';
 import { ChartsOverheadComponent } from './components/charts-overhead/charts-overhead.component';
 import { ChartsManholeComponent } from './components/charts-manhole/charts-manhole.component';
+import { TransformerLocationComponent } from './components/transformer-location/transformer-location.component';
 
 const routes: Routes = [
 
   {
     path: '', component: HomePageComponent, canActivate: [AuthGuard], children: [
       // path: 'signed', component: HomePageComponent, children: [
-      { path: 'manholes', component: ManholesComponent },
+      // { path: 'manholes', component: ManholesComponent },
+      { path: 'manholes', component: TransformerLocationComponent },
       { path: 'overhead', component: OverheadCablesComponent },
       { path: 'add', component: AddManHoleComponent },
       { path: 'add-intr', component: CaptureManholeIntrusionComponent },
       { path: 'charts', component: ChartsComponent },
       { path: 'charts-manhole', component: ChartsManholeComponent },
       { path: 'charts-overhead', component: ChartsOverheadComponent },
-      { path: 'users', component: HomeComponent }, 
+      { path: 'users', component: HomeComponent },
       { path: 'signUp', component: SignUpComponent },
-      { path: 'manhole-intrusions', component: ManholeIntrusionComponent },     
+      { path: 'manhole-intrusions', component: ManholeIntrusionComponent },
     ]
   },
 

@@ -29,6 +29,7 @@ import { ManholeIntrusionComponent } from './components/manhole-intrusion/manhol
 import { CaptureManholeIntrusionComponent } from './components/manhole-intrusion/capture-manhole-intrusion/capture-manhole-intrusion.component';
 import { ChartsOverheadComponent } from './components/charts-overhead/charts-overhead.component';
 import { ChartsManholeComponent } from './components/charts-manhole/charts-manhole.component';
+import { TransformerLocationComponent } from './components/transformer-location/transformer-location.component';
 
 
 // Pass the fusioncharts library and chart modules
@@ -50,7 +51,8 @@ FusionChartsModule.fcRoot(FusionCharts, Charts, FusionTheme);
     ManholeIntrusionComponent,
     CaptureManholeIntrusionComponent,
     ChartsOverheadComponent,
-    ChartsManholeComponent
+    ChartsManholeComponent,
+    TransformerLocationComponent
   ],
   imports: [
     BrowserModule,

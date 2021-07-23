@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { RequestHandler } from 'src/app/providers/requesthandler';
-import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
-import { Overhead } from 'src/app/models/overhead';
+import { OilLevel } from 'src/app/models/oil-level';
+import { ManholeLocationRequest } from 'src/app/models/manhole_location_request';
 
 @Component({
   selector: 'app-overhead-cables',
@@ -9,23 +9,36 @@ import { Overhead } from 'src/app/models/overhead';
   styleUrls: ['./overhead-cables.component.css']
 })
 export class OverheadCablesComponent implements OnInit {
-  overheads:Overhead[];
-  i: number = 1;
+
+  @Input() manholeLocationRequest: ManholeLocationRequest;
+
+  title: string;
+  oilLevelList: OilLevel[];
 
   constructor(private request: RequestHandler) {}
 
   ngOnInit() {
-  this.getOverhead();
+    console.log(this.manholeLocationRequest);
+    if(this.manholeLocationRequest == null){
+      this.title = "All ";
+    this.getAll();
+    }
+    else{
+      this.title = this.manholeLocationRequest.name + " ";
+    this.getManholeIntrusionsByManhole(this.manholeLocationRequest)
+    }
   }
 
-  getOverhead(){
-    this.request.get('/overheadcables', (result) => this.loadManholes(result))
+  getAll(){
+    this.request.get('/v1/oilLevel/all', (result) => this.load(result))
   }
 
-  loadManholes(overheadcables: Overhead[]) {
-    this.overheads = overheadcables;
-    this.overheads.forEach(overhead => overhead.id = this.i++ )
-    console.log(this.overheads);
+  load(x: OilLevel[]) {
+    this.oilLevelList = x;
+  }
+
+  getManholeIntrusionsByManhole(manhole: ManholeLocationRequest) {
+    this.request.get('/v1/oilLevel/findByLocation/' + manhole.id, (result) => this.load(result))
   }
 
 }

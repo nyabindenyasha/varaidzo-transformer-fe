@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ManholeIntrusionRequest } from 'src/app/models/manhole-intrusion-request';
+import { ManholeIntrusion } from 'src/app/models/manhole-intrusion';
 import swal from "sweetalert2";
 import { RequestHandler } from 'src/app/providers/requesthandler';
 import { Router } from '@angular/router';
@@ -11,17 +11,17 @@ import { Router } from '@angular/router';
 })
 export class CaptureManholeIntrusionComponent implements OnInit {
 
-  data: ManholeIntrusionRequest;
+  data: ManholeIntrusion;
 
   constructor( private router: Router, private request: RequestHandler) { }
 
   ngOnInit() {
-    if (this.data == null) this.data = new ManholeIntrusionRequest();
+    if (this.data == null) this.data = new ManholeIntrusion();
   }
 
   onSubmit() {
     console.log(this.data);
-    this.request.post('/manholeintr', this.data, (result) => {
+    this.request.post('/v1/transformerIntrusion', this.data, (result) => {
       console.log(result);
       this.onSuccess(result);
     })
