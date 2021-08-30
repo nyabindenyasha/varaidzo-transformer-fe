@@ -15,6 +15,7 @@ import { ManholeIntrusionComponent } from './components/manhole-intrusion/manhol
 import { ChartsOverheadComponent } from './components/charts-overhead/charts-overhead.component';
 import { ChartsManholeComponent } from './components/charts-manhole/charts-manhole.component';
 import { TransformerLocationComponent } from './components/transformer-location/transformer-location.component';
+import { TemperaturesComponent } from './components/temperatures/temperatures.component';
 
 const routes: Routes = [
 
@@ -32,6 +33,7 @@ const routes: Routes = [
       { path: 'users', component: HomeComponent },
       { path: 'signUp', component: SignUpComponent },
       { path: 'manhole-intrusions', component: ManholeIntrusionComponent },
+      { path: 'temperature', component: TemperaturesComponent}
     ]
   },
 

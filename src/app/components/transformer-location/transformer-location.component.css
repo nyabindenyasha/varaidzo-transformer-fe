@@ -1,3 +1,17 @@
 .custom-select{
     width: 6rem;
 }
+
+.custom-switch{
+    color: red;
+}
+
+.custom-control-label{
+    color: red;
+}
+
+.custom-switch.custom-switch-sm .custom-control-label {
+    padding-left: 1rem;
+    padding-bottom: 1rem;
+    color: red;
+}

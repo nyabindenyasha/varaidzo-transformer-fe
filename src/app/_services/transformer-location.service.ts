@@ -17,6 +17,7 @@ export class TransformerLocationService {
     latitude: new FormControl("", Validators.required),
     longitude: new FormControl("", Validators.required),
     category: new FormControl(""),
+    hasIntrusion: new FormControl(),
   });
 
   url = environment.apiUrl;

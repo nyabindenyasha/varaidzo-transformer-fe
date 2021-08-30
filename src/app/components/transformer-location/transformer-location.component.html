@@ -10,6 +10,7 @@
         <th scope="col">Description </th>
         <th scope="col">Latitude </th>
         <th scope="col">Longitude </th>
+        <th scope="col">Intrusion </th>
         <th scope="col">More Info </th>
       </tr>
     </thead>
@@ -20,16 +21,27 @@
         <th scope="col">{{item.description}}</th>
         <th scope="col">{{item.latitude}}</th>
         <th scope="col">{{item.longitude}}</th>
-        <!-- <button class="btn btn-outline-secondary" (click)="onMore(item)"> More Info </button> -->
-        <div [formGroup]="this.transformerLocationService.form">
-          <select id="drp" class="browser-default custom-select mb-4 form-control" formControlName="category" (change)="onMore(item)">
-            <option value="" disabled>Choose option</option>
-            <option value=1> View Intrusions </option>
-            <option value=2> View Oil Readings </option>
-            <option value=3> View Statistics </option>
-          </select>
-        </div>
-      
+
+        <th>
+          <div class="custom-control custom-switch md text-center">
+            <input type="checkbox" class="custom-control-input" id="customSwitches" [(ngModel)]="item.hasIntrusion">
+            <label class="custom-control-label" for="customSwitches"></label>
+          </div>
+        </th>
+
+        <th>
+          <div [formGroup]="this.transformerLocationService.form">
+            <select id="drp" class="browser-default custom-select mb-4 form-control" formControlName="category"
+              (change)="onMore(item)">
+              <option value="" disabled>Choose option</option>
+              <option value=1> View Intrusions </option>
+              <option value=2> View Oil Readings </option>
+              <option value=3> Temperature Readings </option>
+              <option value=4> View Statistics </option>
+            </select>
+          </div>
+        </th>
+
       </tr>
     </tbody>
   </table>
@@ -99,3 +111,7 @@
 <app-manhole-intrusion *ngIf="isIntrusion" [manholeLocationRequest]="manholeLocationRequest"></app-manhole-intrusion>
 
 <app-overhead-cables *ngIf="isOilReading" [manholeLocationRequest]="manholeLocationRequest"></app-overhead-cables>
+
+<app-temperatures *ngIf="isTemperature" [manholeLocationRequest]="manholeLocationRequest"></app-temperatures>
+
+<app-charts *ngIf="isStatistics" [manholeLocationRequest]="manholeLocationRequest"></app-charts>

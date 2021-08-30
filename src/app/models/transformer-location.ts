@@ -6,5 +6,6 @@ export interface TransformerLocation {
     description: string;
     latitude: number;
     longitude: number;
+    hasIntrusion: boolean;
     
 }
