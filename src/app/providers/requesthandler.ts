@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';import { Observable } from 'rxjs';
 
 @Injectable()
 export class RequestHandler {
-    _base: string = 'http://localhost:8080';
+    _base: string = 'https://varaidzo-transformer-oil-monit.herokuapp.com';
     base: string = this._base + '';
 
     constructor(private _http: HttpClient) {
