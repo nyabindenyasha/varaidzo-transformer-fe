@@ -8,7 +8,7 @@
         <tr>
          <th scope="col">#</th>
          <th scope="col">Location</th>
-         <th scope="col">Oil Reading</th>
+         <th scope="col">Oil Reading (% Full)</th>
          <th scope="col"> Date</th>
         </tr>
       </thead>
@@ -16,7 +16,7 @@
         <tr *ngFor = "let  item of oilLevelList">
           <th  scope="col">{{item.id}}</th>
           <th  scope="col">{{item.transformerLocation.name}}</th>
-          <th  scope="col">{{item.oilLevel}}</th>
+          <th  scope="col">{{item.oilLevel}} &nbsp; %</th>
           <th  scope="col">{{item.date | date : 'short'}}</th>  
         </tr>
       </tbody>

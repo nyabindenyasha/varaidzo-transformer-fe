@@ -18,6 +18,7 @@ export class TransformerLocationComponent implements OnInit {
   isOilReading: boolean = false;
   isTemperature: boolean = false;
   isStatistics: boolean = false;
+  isLoaded: boolean = false;
 
   isIntrusionSwalViewed: boolean = false;
 
@@ -36,7 +37,7 @@ export class TransformerLocationComponent implements OnInit {
   refresh() {
     setInterval(() => {
       this.load();
-    }, 30000);
+    }, 20000);
   }
 
   onSubmit() {
@@ -52,11 +53,30 @@ export class TransformerLocationComponent implements OnInit {
       this.transformerLocations = x;
     })
     this.transformerLocations.forEach(x => {
-      if (x.hasIntrusion){
-        swal.fire('Intrusion Alert', 'An intrusion was detected at ' + x.name, 'warning');
-        // this.isIntrusionSwalViewed = true;
-      }
+      // if (x.hasIntrusion) {
+      //   swal.fire('Intrusion Alert', 'An intrusion was detected at ' + x.name, 'warning');
+      //   // this.isIntrusionSwalViewed = true;
+      // }
+
+      if (x.hasIntrusion)
+        x.color1 = "purple"
+      else
+        x.color1 = "safe"
+
+      if (x.hasAbnormalTemperature)
+        x.color2 = "red"
+      else
+        x.color2 = "safe"
+
+      if (x.hasAbnormalOilLevel)
+        x.color3 = "orange"
+      else
+        x.color3 = "safe"
+
     })
+
+    this.isLoaded = true;
+    
   }
 
   onMore(item: any) {
