@@ -1,44 +1,42 @@
 ﻿<br><br>
-<h1>Hi {{currentUser.firstName}} {{currentUser.lastName}}!</h1>
-<br>
-<p>You're logged into the CAT System!!</p>
-<br>
-<h3>All registered users:</h3>
 
-<!-- <table mdbTable>
-    <thead>
-        <tr>
-            <th *ngFor="let head of headElements" scope="col">{{head}} &nbsp;&nbsp;&nbsp;&nbsp;</th> 
-        </tr>
-    </thead>
-    <tbody>
-        <tr mdbTableCol *ngFor="let el of users">
-            <th scope="row">{{el.id}}</th>
-            <td>{{el.firstname}}</td> 
-            <td>{{el.lastname}}</td> 
-            <td>{{el.email}}</td> 
-        </tr>
-    </tbody>
-</table> -->
+<div class="main-page">
 
-<table class="table">
-    <thead class="heading">
-        <tr>
-            <th scope="col">Id</th>
-            <th scope="col">First Name </th>
-            <th scope="col">Last Name </th>
-            <th scope="col">Username </th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let  item of users">
-            <th scope="col">{{item.id}}</th>
-            <th scope="col">{{item.firstName}}</th>
-            <th scope="col">{{item.lastName}}</th>
-            <th scope="col">{{item.username}}</th>
-        </tr>
-    </tbody>
-</table>
+    <h2 *ngIf="isLoaded">Hi {{currentUser.firstName}} &nbsp; {{currentUser.lastName}}!</h2>
+    <br>
+ 
+
+    <div *ngIf="!itemClicked" class="user-list">
+        <h3>All registered users:</h3>
+
+        <table class="table">
+            <thead class="heading">
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">First Name </th>
+                    <th scope="col">Last Name </th>
+                    <th scope="col">Username </th>
+                    <th scope="col">Email </th>
+                    <th scope="col">Details </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let  item of users">
+                    <th scope="col">{{item.id}}</th>
+                    <th scope="col">{{item.firstName}}</th>
+                    <th scope="col">{{item.lastName}}</th>
+                    <th scope="col">{{item.username}}</th>
+                    <th scope="col">{{item.email}}</th>
+                    <button class="btn btn-outline-secondary" (click)="onMore(item)"> More Info </button>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+    <app-sign-up *ngIf="itemClicked" [user]="selected"></app-sign-up>
+
+</div>
 
 <br>
 <p><a [routerLink]="['/signUp']">Register more users</a></p>

@@ -1,29 +1,40 @@
 <br> <br>
 <div class="card border-0">
   <div class="container">
-    <h2 class="text-center">Sign Up New User</h2>
+    <h2 class="text-center">Capture/Edit a User</h2>
     <br> <br>
     <div class="form-row">
       <div class="col">
         <label>First Name</label>
-        <input type="text" class="form-control" [(ngModel)]="data.firstname" placeholder="firstname">
+        <input type="text" class="form-control" [(ngModel)]="user.firstName" placeholder="firstname">
       </div>
       <div class="col">
         <label>Last Name</label>
-        <input type="text" class="form-control" [(ngModel)]="data.lastname" placeholder="lastname">
+        <input type="text" class="form-control" [(ngModel)]="user.lastName" placeholder="lastname">
+      </div>
+    </div>
+    <br>
+    <div class="form-row">
+      <div class="col">
+        <label>Usernanme</label>
+        <input type="text" class="form-control" [(ngModel)]="user.username" placeholder="username">
+      </div>
+      <div class="col">
+        <label>Password</label>
+        <input type="password" class="form-control" [(ngModel)]="user.password" placeholder="password">
       </div>
     </div>
     <br>
     <div class="form-row">
       <div class="col">
         <label>Email</label>
-        <input type="email" class="form-control" [(ngModel)]="data.email" placeholder="email">
+        <input type="email" class="form-control" [(ngModel)]="user.email" placeholder="email">
       </div>
       <div class="col">
-        <label>Password</label>
-        <input type="password" class="form-control" [(ngModel)]="data.password" placeholder="password">
       </div>
     </div>
+
     <br>
+
     <button (click)="onSubmit()" class="btn btn-primary">Submit</button>
   </div>
