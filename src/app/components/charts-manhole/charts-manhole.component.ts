@@ -9,7 +9,7 @@ import { ManholeDetails } from 'src/app/models/manhole-details';
 })
 export class ChartsManholeComponent implements OnInit {
   dataSource: any;
-  title = "Manhole Intrusion";
+  title = "Transformer Intrusion";
   manHoleDetails: ManholeDetails;
   janValue: number;
   febValue: number;
@@ -42,10 +42,10 @@ export class ChartsManholeComponent implements OnInit {
   initialise(){
     this.dataSource = {
     chart: {
-      caption: 'Manhole Intrusion cases for 2019',
-      subCaption: 'Showing No. of theft cases per month',
+      caption: 'Transformer Intrusion cases for 2019',
+      subCaption: 'Showing No. of intrusion cases per month',
       xAxisName: 'Months of the year',
-      yAxisName: 'No. of theft cases',
+      yAxisName: 'No. of intrusion cases',
       theme: 'fusion'
     },
     data: [

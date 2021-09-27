@@ -11,7 +11,8 @@ export class ChartsComponent implements OnInit {
   @Input() manholeLocationRequest: ManholeLocationRequest;
 
   manholeDataSource: any;
-  overheadCableDataSource: any;
+  oillevelDataSource: any;
+  temperatureDataSource: any;
   // title1 = "Transformer Intrusions";
   // title2 = "Oil level Statistics";
   // title3 = "Temperature Statistics";
@@ -36,6 +37,7 @@ export class ChartsComponent implements OnInit {
 
     this.initialise1();
     this.initialise2();
+    this.initialise3();
   }
 
   initialise1() {
@@ -65,7 +67,7 @@ export class ChartsComponent implements OnInit {
   }
 
   initialise2() {
-    this.overheadCableDataSource = {
+    this.oillevelDataSource = {
       chart: {
         caption: 'Oil level records for 2021',
         subCaption: 'Showing oil level records per month',
@@ -91,27 +93,27 @@ export class ChartsComponent implements OnInit {
   }
 
   initialise3() {
-    this.manholeDataSource = {
+    this.temperatureDataSource = {
       chart: {
         caption: 'Temperature records for 2021',
         subCaption: 'Showing No. of temperature records per month',
         xAxisName: 'Months of the year',
-        yAxisName: 'No. of Temperature records',
+        yAxisName: 'Temperature in Degrees Celcius',
         theme: 'fusion'
       },
       data: [
-        { label: 'Jan', value: '9' },
-        { label: 'Feb', value: '26' },
-        { label: 'Mar', value: '18' },
-        { label: 'Apr', value: '14' },
-        { label: 'May', value: '11' },
-        { label: 'Jun', value: '10' },
-        { label: 'Jul', value: '3' },
-        { label: 'Aug', value: '3' },
-        { label: 'Sep', value: '18' },
-        { label: 'Oct', value: '14' },
-        { label: 'Nov', value: '11' },
-        { label: 'Dec', value: '10' },
+        { label: 'Jan', value: '39' },
+        { label: 'Feb', value: '46' },
+        { label: 'Mar', value: '48' },
+        { label: 'Apr', value: '34' },
+        { label: 'May', value: '51' },
+        { label: 'Jun', value: '40' },
+        { label: 'Jul', value: '43' },
+        { label: 'Aug', value: '53' },
+        { label: 'Sep', value: '58' },
+        { label: 'Oct', value: '44' },
+        { label: 'Nov', value: '51' },
+        { label: 'Dec', value: '40' },
       ]
     }
   }

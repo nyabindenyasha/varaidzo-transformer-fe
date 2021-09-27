@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ChartsOverheadComponent implements OnInit {
   dataSource: any;
-  title = "Overhead Cables";
+  title = "Oil Level Statistics";
   janValue: number;
   febValue: number;
   marValue: number;
@@ -30,10 +30,10 @@ export class ChartsOverheadComponent implements OnInit {
   initialise(){
     this.dataSource = {
     chart: {
-      caption: 'Manhole Intrusion cases for 2019',
-      subCaption: 'Showing No. of theft cases per month',
+      caption: 'Oil level records for 2021',
+      subCaption: 'Showing oil level records per month',
       xAxisName: 'Months of the year',
-      yAxisName: 'No. of theft cases',
+      yAxisName: 'Volume of oil',
       theme: 'fusion'
     },
     data: [
